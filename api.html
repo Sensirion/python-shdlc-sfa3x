@@ -1,0 +1,2023 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API Reference &mdash; sensirion-shdlc-sfa3x 0.1.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/banner.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Quick Start" href="quickstart.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> sensirion-shdlc-sfa3x
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="shdlc.html">SHDLC Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quick Start</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-sensirion_shdlc_sfa3x.device">Sfa3xShdlcDevice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#response-data-types">Response Data Types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#formaldehyde-concentration">Formaldehyde Concentration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#humidity">Humidity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#temperature">Temperature</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#device-errors">Device Errors</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#no-measurement-data-available">No Measurement Data Available</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#command-not-allowed-in-current-state">Command Not Allowed In Current State</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#file-error">File Error</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fatal-error">Fatal Error</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_shdlc_sfa3x.commands.start_measurement">Start Measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_shdlc_sfa3x.commands.stop_measurement">Stop Measurement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_shdlc_sfa3x.commands.read_measured_values">Read Measured Values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_shdlc_sfa3x.commands.device_information">Device Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-sensirion_shdlc_sfa3x.commands.device_reset">Device Reset</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">sensirion-shdlc-sfa3x</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>API Reference</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api-reference">
+<h1>API Reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-sensirion_shdlc_sfa3x.device">
+<span id="sfa3xshdlcdevice"></span><h2>Sfa3xShdlcDevice<a class="headerlink" href="#module-sensirion_shdlc_sfa3x.device" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice">
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sfa3x.device.</code><code class="descname">Sfa3xShdlcDevice</code><span class="sig-paren">(</span><em>connection</em>, <em>slave_address</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/device.html#Sfa3xShdlcDevice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice" title="Permalink to this definition">¶</a></dt>
+<dd><p>SFA3x device.</p>
+<p>This is a low-level driver which just provides all SHDLC commands as Python
+methods. Typically, calling a method sends one SHDLC request to the device
+and interprets its response. There is no higher level functionality
+available, please look for other drivers if you need a higher level
+interface.</p>
+<p>There is no (or very few) caching functionality in this driver. For example
+if you call <a class="reference internal" href="#sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice.get_device_marking" title="sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice.get_device_marking"><code class="xref py py-func docutils literal notranslate"><span class="pre">get_device_marking()</span></code></a> 100 times, it will send the command
+100 times over the SHDLC interface to the device. This makes the driver
+(nearly) stateless.</p>
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>connection</em>, <em>slave_address</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/device.html#Sfa3xShdlcDevice.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a SFA3x device instance on an SHDLC connection.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This constructor does not communicate with the device, so
+it’s possible to instantiate an object even if the device is
+not connected or powered yet.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>connection</strong> (<a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.connection.ShdlcConnection" title="(in Sensirion SHDLC Python Driver v0.1.6)"><em>ShdlcConnection</em></a>) – The connection used for the communication.</li>
+<li><strong>slave_address</strong> (<em>byte</em>) – The address of the device. The default address of the SFA3x is 0.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice.get_device_marking">
+<code class="descname">get_device_marking</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/device.html#Sfa3xShdlcDevice.get_device_marking"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice.get_device_marking" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the device marking from the device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The device marking as an ASCII string.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice.device_reset">
+<code class="descname">device_reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/device.html#Sfa3xShdlcDevice.device_reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice.device_reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute a device reset (reboot firmware, similar to power cycle).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice.start_measurement">
+<code class="descname">start_measurement</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/device.html#Sfa3xShdlcDevice.start_measurement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice.start_measurement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts continuous measurement in polling mode.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This command is only available in idle mode.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice.stop_measurement">
+<code class="descname">stop_measurement</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/device.html#Sfa3xShdlcDevice.stop_measurement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice.stop_measurement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Leaves the measurement mode and returns to the idle mode.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This command is only available in measurement mode.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice.read_measured_values">
+<code class="descname">read_measured_values</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/device.html#Sfa3xShdlcDevice.read_measured_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice.read_measured_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the new measurement results.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The measured formaldehyde concentration, humidity and temperature.<ul class="simple">
+<li>hcho (<a class="reference internal" href="#sensirion_shdlc_sfa3x.response_types.FormaldehydeConcentration" title="sensirion_shdlc_sfa3x.response_types.FormaldehydeConcentration"><code class="xref py py-class docutils literal notranslate"><span class="pre">FormaldehydeConcentration</span></code></a>) -
+Formaldehyde concentration response object.</li>
+<li>humidity (<a class="reference internal" href="#sensirion_shdlc_sfa3x.response_types.Humidity" title="sensirion_shdlc_sfa3x.response_types.Humidity"><code class="xref py py-class docutils literal notranslate"><span class="pre">Humidity</span></code></a>) -
+Humidity response object.</li>
+<li>temperature (<a class="reference internal" href="#sensirion_shdlc_sfa3x.response_types.Temperature" title="sensirion_shdlc_sfa3x.response_types.Temperature"><code class="xref py py-class docutils literal notranslate"><span class="pre">Temperature</span></code></a>) -
+Temperature response object.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">tuple</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="#sensirion_shdlc_sfa3x.device_errors.Sfa3xNoMeasurementDataAvailable" title="sensirion_shdlc_sfa3x.device_errors.Sfa3xNoMeasurementDataAvailable"><strong>Sfa3xNoMeasurementDataAvailable</strong></a> – If the measure mode was not started, or it was started but no
+measurement results are available yet. After starting the
+measurement, you have to wait at least 1 Second before reading
+any results.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice.connection">
+<code class="descname">connection</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice.connection" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the used SHDLC connection.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The used SHDLC connection.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.connection.ShdlcConnection" title="(in Sensirion SHDLC Python Driver v0.1.6)"><code class="xref py py-class docutils literal notranslate"><span class="pre">ShdlcConnection</span></code></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice.execute">
+<code class="descname">execute</code><span class="sig-paren">(</span><em>command</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice.execute" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute an SHDLC command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>command</strong> (<a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.command.ShdlcCommand" title="(in Sensirion SHDLC Python Driver v0.1.6)"><em>ShdlcCommand</em></a>) – The command to execute.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The interpreted response of the executed command.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice.last_error_flag">
+<code class="descname">last_error_flag</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice.last_error_flag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the error flag which was received with the last response of the
+device. So this flag gets updated with every command sent to the
+device. If the flag is True, typically the derived classes provide a
+method to read the exact error reason from the device (the
+corresponding SHDLC command is called “Get Device Status”).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">When creating an instance of
+<code class="xref py py-class docutils literal notranslate"><span class="pre">ShdlcDeviceBase</span></code>,
+this property is initialized with <code class="docutils literal notranslate"><span class="pre">False</span></code> and will not be
+updated until you send the first command to the device.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">True if the device indicated an error, False otherwise.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice.slave_address">
+<code class="descname">slave_address</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.device.Sfa3xShdlcDevice.slave_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the slave address (not read from the device!).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The slave address.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="response-data-types">
+<h2>Response Data Types<a class="headerlink" href="#response-data-types" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="formaldehyde-concentration">
+<h3>Formaldehyde Concentration<a class="headerlink" href="#formaldehyde-concentration" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sensirion_shdlc_sfa3x.response_types.FormaldehydeConcentration">
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sfa3x.response_types.</code><code class="descname">FormaldehydeConcentration</code><span class="sig-paren">(</span><em>ticks</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/response_types.html#FormaldehydeConcentration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.response_types.FormaldehydeConcentration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a measurement response for the formaldehyde concentration.</p>
+<p>With the <a class="reference internal" href="#sensirion_shdlc_sfa3x.response_types.FormaldehydeConcentration.ticks" title="sensirion_shdlc_sfa3x.response_types.FormaldehydeConcentration.ticks"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ticks</span></code></a> you can access the raw data as received from the
+device. For the converted value the <a class="reference internal" href="#sensirion_shdlc_sfa3x.response_types.FormaldehydeConcentration.ppb" title="sensirion_shdlc_sfa3x.response_types.FormaldehydeConcentration.ppb"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ppb</span></code></a> attribute is available.</p>
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.response_types.FormaldehydeConcentration.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>ticks</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/response_types.html#FormaldehydeConcentration.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.response_types.FormaldehydeConcentration.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an instance from the received raw data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ticks</strong> (<em>int</em>) – The read ticks as received from the device.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.response_types.FormaldehydeConcentration.ticks">
+<code class="descname">ticks</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.response_types.FormaldehydeConcentration.ticks" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ticks (int) as received from the device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.response_types.FormaldehydeConcentration.ppb">
+<code class="descname">ppb</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.response_types.FormaldehydeConcentration.ppb" title="Permalink to this definition">¶</a></dt>
+<dd><p>The converted formaldehyde concentration.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="humidity">
+<h3>Humidity<a class="headerlink" href="#humidity" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sensirion_shdlc_sfa3x.response_types.Humidity">
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sfa3x.response_types.</code><code class="descname">Humidity</code><span class="sig-paren">(</span><em>ticks</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/response_types.html#Humidity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.response_types.Humidity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a measurement response for the humidity.</p>
+<p>With the <a class="reference internal" href="#sensirion_shdlc_sfa3x.response_types.Humidity.ticks" title="sensirion_shdlc_sfa3x.response_types.Humidity.ticks"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ticks</span></code></a> you can access the raw data as received from the
+device. For the converted value the <a class="reference internal" href="#sensirion_shdlc_sfa3x.response_types.Humidity.percent_rh" title="sensirion_shdlc_sfa3x.response_types.Humidity.percent_rh"><code class="xref py py-attr docutils literal notranslate"><span class="pre">percent_rh</span></code></a> attribute is
+available.</p>
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.response_types.Humidity.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>ticks</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/response_types.html#Humidity.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.response_types.Humidity.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an instance from the received raw data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ticks</strong> (<em>int</em>) – The read ticks as received from the device.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.response_types.Humidity.ticks">
+<code class="descname">ticks</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.response_types.Humidity.ticks" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ticks (int) as received from the device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.response_types.Humidity.percent_rh">
+<code class="descname">percent_rh</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.response_types.Humidity.percent_rh" title="Permalink to this definition">¶</a></dt>
+<dd><p>The converted humidity in %RH.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="temperature">
+<h3>Temperature<a class="headerlink" href="#temperature" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sensirion_shdlc_sfa3x.response_types.Temperature">
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sfa3x.response_types.</code><code class="descname">Temperature</code><span class="sig-paren">(</span><em>ticks</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/response_types.html#Temperature"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.response_types.Temperature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Represents a measurement response for the temperature.</p>
+<p>With the <a class="reference internal" href="#sensirion_shdlc_sfa3x.response_types.Temperature.ticks" title="sensirion_shdlc_sfa3x.response_types.Temperature.ticks"><code class="xref py py-attr docutils literal notranslate"><span class="pre">ticks</span></code></a> you can access the raw data as received from the
+device. For the converted values you can choose between
+<a class="reference internal" href="#sensirion_shdlc_sfa3x.response_types.Temperature.degrees_celsius" title="sensirion_shdlc_sfa3x.response_types.Temperature.degrees_celsius"><code class="xref py py-attr docutils literal notranslate"><span class="pre">degrees_celsius</span></code></a> and <a class="reference internal" href="#sensirion_shdlc_sfa3x.response_types.Temperature.degrees_fahrenheit" title="sensirion_shdlc_sfa3x.response_types.Temperature.degrees_fahrenheit"><code class="xref py py-attr docutils literal notranslate"><span class="pre">degrees_fahrenheit</span></code></a>.</p>
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.response_types.Temperature.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>ticks</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/response_types.html#Temperature.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.response_types.Temperature.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an instance from the received raw data.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>ticks</strong> (<em>int</em>) – The read ticks as received from the device.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.response_types.Temperature.ticks">
+<code class="descname">ticks</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.response_types.Temperature.ticks" title="Permalink to this definition">¶</a></dt>
+<dd><p>The ticks (int) as received from the device.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.response_types.Temperature.degrees_celsius">
+<code class="descname">degrees_celsius</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.response_types.Temperature.degrees_celsius" title="Permalink to this definition">¶</a></dt>
+<dd><p>The converted temperature in °C.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.response_types.Temperature.degrees_fahrenheit">
+<code class="descname">degrees_fahrenheit</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.response_types.Temperature.degrees_fahrenheit" title="Permalink to this definition">¶</a></dt>
+<dd><p>The converted temperature in °F.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="device-errors">
+<h2>Device Errors<a class="headerlink" href="#device-errors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="no-measurement-data-available">
+<h3>No Measurement Data Available<a class="headerlink" href="#no-measurement-data-available" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sensirion_shdlc_sfa3x.device_errors.Sfa3xNoMeasurementDataAvailable">
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sfa3x.device_errors.</code><code class="descname">Sfa3xNoMeasurementDataAvailable</code><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/device_errors.html#Sfa3xNoMeasurementDataAvailable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.device_errors.Sfa3xNoMeasurementDataAvailable" title="Permalink to this definition">¶</a></dt>
+<dd><p>No measurement data is available at the moment.</p>
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.device_errors.Sfa3xNoMeasurementDataAvailable.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/device_errors.html#Sfa3xNoMeasurementDataAvailable.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.device_errors.Sfa3xNoMeasurementDataAvailable.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>code</strong> (<em>byte</em>) – The error code received from the device.</li>
+<li><strong>message</strong> (<em>string</em>) – The error description for the given error code.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.device_errors.Sfa3xNoMeasurementDataAvailable.error_code">
+<code class="descname">error_code</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.device_errors.Sfa3xNoMeasurementDataAvailable.error_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the error code received from the device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Received error code.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.device_errors.Sfa3xNoMeasurementDataAvailable.error_message">
+<code class="descname">error_message</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.device_errors.Sfa3xNoMeasurementDataAvailable.error_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the description of the received error code.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Error message.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.device_errors.Sfa3xNoMeasurementDataAvailable.with_traceback">
+<code class="descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sfa3x.device_errors.Sfa3xNoMeasurementDataAvailable.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="command-not-allowed-in-current-state">
+<h3>Command Not Allowed In Current State<a class="headerlink" href="#command-not-allowed-in-current-state" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sensirion_shdlc_sfa3x.device_errors.Sfa3xCommandNotAllowedInCurrentState">
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sfa3x.device_errors.</code><code class="descname">Sfa3xCommandNotAllowedInCurrentState</code><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/device_errors.html#Sfa3xCommandNotAllowedInCurrentState"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.device_errors.Sfa3xCommandNotAllowedInCurrentState" title="Permalink to this definition">¶</a></dt>
+<dd><p>The requested command is not allowed in the current device state.</p>
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.device_errors.Sfa3xCommandNotAllowedInCurrentState.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/device_errors.html#Sfa3xCommandNotAllowedInCurrentState.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.device_errors.Sfa3xCommandNotAllowedInCurrentState.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>code</strong> (<em>byte</em>) – The error code received from the device.</li>
+<li><strong>message</strong> (<em>string</em>) – The error description for the given error code.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.device_errors.Sfa3xCommandNotAllowedInCurrentState.error_code">
+<code class="descname">error_code</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.device_errors.Sfa3xCommandNotAllowedInCurrentState.error_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the error code received from the device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Received error code.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.device_errors.Sfa3xCommandNotAllowedInCurrentState.error_message">
+<code class="descname">error_message</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.device_errors.Sfa3xCommandNotAllowedInCurrentState.error_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the description of the received error code.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Error message.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.device_errors.Sfa3xCommandNotAllowedInCurrentState.with_traceback">
+<code class="descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sfa3x.device_errors.Sfa3xCommandNotAllowedInCurrentState.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="file-error">
+<h3>File Error<a class="headerlink" href="#file-error" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sensirion_shdlc_sfa3x.device_errors.Sfa3xFileError">
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sfa3x.device_errors.</code><code class="descname">Sfa3xFileError</code><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/device_errors.html#Sfa3xFileError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.device_errors.Sfa3xFileError" title="Permalink to this definition">¶</a></dt>
+<dd><p>A file error occurred (init/read/write error).</p>
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.device_errors.Sfa3xFileError.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/device_errors.html#Sfa3xFileError.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.device_errors.Sfa3xFileError.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>code</strong> (<em>byte</em>) – The error code received from the device.</li>
+<li><strong>message</strong> (<em>string</em>) – The error description for the given error code.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.device_errors.Sfa3xFileError.error_code">
+<code class="descname">error_code</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.device_errors.Sfa3xFileError.error_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the error code received from the device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Received error code.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.device_errors.Sfa3xFileError.error_message">
+<code class="descname">error_message</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.device_errors.Sfa3xFileError.error_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the description of the received error code.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Error message.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.device_errors.Sfa3xFileError.with_traceback">
+<code class="descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sfa3x.device_errors.Sfa3xFileError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="fatal-error">
+<h3>Fatal Error<a class="headerlink" href="#fatal-error" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sensirion_shdlc_sfa3x.device_errors.Sfa3xFatalError">
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sfa3x.device_errors.</code><code class="descname">Sfa3xFatalError</code><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/device_errors.html#Sfa3xFatalError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.device_errors.Sfa3xFatalError" title="Permalink to this definition">¶</a></dt>
+<dd><p>An error without specific error code occurred.</p>
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.device_errors.Sfa3xFatalError.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/device_errors.html#Sfa3xFatalError.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.device_errors.Sfa3xFatalError.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>code</strong> (<em>byte</em>) – The error code received from the device.</li>
+<li><strong>message</strong> (<em>string</em>) – The error description for the given error code.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.device_errors.Sfa3xFatalError.error_code">
+<code class="descname">error_code</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.device_errors.Sfa3xFatalError.error_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the error code received from the device.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Received error code.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.device_errors.Sfa3xFatalError.error_message">
+<code class="descname">error_message</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.device_errors.Sfa3xFatalError.error_message" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the description of the received error code.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Error message.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">string</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.device_errors.Sfa3xFatalError.with_traceback">
+<code class="descname">with_traceback</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sfa3x.device_errors.Sfa3xFatalError.with_traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Exception.with_traceback(tb) –
+set self.__traceback__ to tb and return self.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-sensirion_shdlc_sfa3x.commands.start_measurement">
+<span id="start-measurement"></span><h3>Start Measurement<a class="headerlink" href="#module-sensirion_shdlc_sfa3x.commands.start_measurement" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartMeasurementBase">
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sfa3x.commands.start_measurement.</code><code class="descname">Sfa3xCmdStartMeasurementBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/commands/start_measurement.html#Sfa3xCmdStartMeasurementBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartMeasurementBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>SHDLC command 0x00: “Start Measurement”.</p>
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartMeasurementBase.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/commands/start_measurement.html#Sfa3xCmdStartMeasurementBase.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartMeasurementBase.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartMeasurementBase.check_response_length">
+<code class="descname">check_response_length</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartMeasurementBase.check_response_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the response length is correct.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.6)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartMeasurementBase.data">
+<code class="descname">data</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartMeasurementBase.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the command data (payload).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Command data (length 0..255).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartMeasurementBase.id">
+<code class="descname">id</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartMeasurementBase.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the command ID.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Command ID (0..255).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartMeasurementBase.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartMeasurementBase.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpret the response to this command received from the device. This
+converts the raw byte array to the actual data type(s) depending on the
+sent command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Interpreted response. Data type and meaning depends on the
+sent command. None for commands without response data. See the
+actual command implementation for details.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartMeasurementBase.max_response_time">
+<code class="descname">max_response_time</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartMeasurementBase.max_response_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the maximum response time for this command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Maximum response time in seconds.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartMeasurementBase.post_processing_time">
+<code class="descname">post_processing_time</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartMeasurementBase.post_processing_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the post processing time for this command. The post processing time
+defines how long a device needs to execute a command <em>after</em> responding
+to the SHDLC command. Most devices don’t need post processing (command
+is executed <em>before</em> the response is sent). Only special commands (e.g.
+a device reset) are executed after the response is sent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Maximum response time in seconds.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartContinuousMeasurement">
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sfa3x.commands.start_measurement.</code><code class="descname">Sfa3xCmdStartContinuousMeasurement</code><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/commands/start_measurement.html#Sfa3xCmdStartContinuousMeasurement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartContinuousMeasurement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start Continuous Measurement Command</p>
+<p>Default output format 0.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This command is only available in idle mode.</p>
+</div>
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartContinuousMeasurement.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/commands/start_measurement.html#Sfa3xCmdStartContinuousMeasurement.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartContinuousMeasurement.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartContinuousMeasurement.check_response_length">
+<code class="descname">check_response_length</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartContinuousMeasurement.check_response_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the response length is correct.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.6)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartContinuousMeasurement.data">
+<code class="descname">data</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartContinuousMeasurement.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the command data (payload).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Command data (length 0..255).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartContinuousMeasurement.id">
+<code class="descname">id</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartContinuousMeasurement.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the command ID.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Command ID (0..255).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartContinuousMeasurement.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartContinuousMeasurement.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpret the response to this command received from the device. This
+converts the raw byte array to the actual data type(s) depending on the
+sent command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Interpreted response. Data type and meaning depends on the
+sent command. None for commands without response data. See the
+actual command implementation for details.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartContinuousMeasurement.max_response_time">
+<code class="descname">max_response_time</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartContinuousMeasurement.max_response_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the maximum response time for this command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Maximum response time in seconds.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartContinuousMeasurement.post_processing_time">
+<code class="descname">post_processing_time</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.start_measurement.Sfa3xCmdStartContinuousMeasurement.post_processing_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the post processing time for this command. The post processing time
+defines how long a device needs to execute a command <em>after</em> responding
+to the SHDLC command. Most devices don’t need post processing (command
+is executed <em>before</em> the response is sent). Only special commands (e.g.
+a device reset) are executed after the response is sent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Maximum response time in seconds.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-sensirion_shdlc_sfa3x.commands.stop_measurement">
+<span id="stop-measurement"></span><h3>Stop Measurement<a class="headerlink" href="#module-sensirion_shdlc_sfa3x.commands.stop_measurement" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurementBase">
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sfa3x.commands.stop_measurement.</code><code class="descname">Sfa3xCmdStopMeasurementBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/commands/stop_measurement.html#Sfa3xCmdStopMeasurementBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurementBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>SHDLC command 0x01: “Stop Measurement”.</p>
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurementBase.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/commands/stop_measurement.html#Sfa3xCmdStopMeasurementBase.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurementBase.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurementBase.check_response_length">
+<code class="descname">check_response_length</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurementBase.check_response_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the response length is correct.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.6)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurementBase.data">
+<code class="descname">data</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurementBase.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the command data (payload).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Command data (length 0..255).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurementBase.id">
+<code class="descname">id</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurementBase.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the command ID.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Command ID (0..255).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurementBase.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurementBase.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpret the response to this command received from the device. This
+converts the raw byte array to the actual data type(s) depending on the
+sent command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Interpreted response. Data type and meaning depends on the
+sent command. None for commands without response data. See the
+actual command implementation for details.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurementBase.max_response_time">
+<code class="descname">max_response_time</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurementBase.max_response_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the maximum response time for this command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Maximum response time in seconds.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurementBase.post_processing_time">
+<code class="descname">post_processing_time</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurementBase.post_processing_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the post processing time for this command. The post processing time
+defines how long a device needs to execute a command <em>after</em> responding
+to the SHDLC command. Most devices don’t need post processing (command
+is executed <em>before</em> the response is sent). Only special commands (e.g.
+a device reset) are executed after the response is sent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Maximum response time in seconds.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurement">
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sfa3x.commands.stop_measurement.</code><code class="descname">Sfa3xCmdStopMeasurement</code><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/commands/stop_measurement.html#Sfa3xCmdStopMeasurement"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurement" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stop Measurement Command</p>
+<p>Leaves the measurement mode and returns to idle mode.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This command is only available in measurement mode.</p>
+</div>
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurement.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/commands/stop_measurement.html#Sfa3xCmdStopMeasurement.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurement.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurement.check_response_length">
+<code class="descname">check_response_length</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurement.check_response_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the response length is correct.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.6)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurement.data">
+<code class="descname">data</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurement.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the command data (payload).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Command data (length 0..255).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurement.id">
+<code class="descname">id</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurement.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the command ID.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Command ID (0..255).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurement.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurement.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpret the response to this command received from the device. This
+converts the raw byte array to the actual data type(s) depending on the
+sent command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Interpreted response. Data type and meaning depends on the
+sent command. None for commands without response data. See the
+actual command implementation for details.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurement.max_response_time">
+<code class="descname">max_response_time</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurement.max_response_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the maximum response time for this command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Maximum response time in seconds.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurement.post_processing_time">
+<code class="descname">post_processing_time</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.stop_measurement.Sfa3xCmdStopMeasurement.post_processing_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the post processing time for this command. The post processing time
+defines how long a device needs to execute a command <em>after</em> responding
+to the SHDLC command. Most devices don’t need post processing (command
+is executed <em>before</em> the response is sent). Only special commands (e.g.
+a device reset) are executed after the response is sent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Maximum response time in seconds.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-sensirion_shdlc_sfa3x.commands.read_measured_values">
+<span id="read-measured-values"></span><h3>Read Measured Values<a class="headerlink" href="#module-sensirion_shdlc_sfa3x.commands.read_measured_values" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesBase">
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sfa3x.commands.read_measured_values.</code><code class="descname">Sfa3xCmdReadMeasuredValuesBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/commands/read_measured_values.html#Sfa3xCmdReadMeasuredValuesBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>SHDLC command 0x03: “Read Measured Values”.</p>
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesBase.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/commands/read_measured_values.html#Sfa3xCmdReadMeasuredValuesBase.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesBase.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesBase.check_response_length">
+<code class="descname">check_response_length</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesBase.check_response_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the response length is correct.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.6)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesBase.data">
+<code class="descname">data</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesBase.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the command data (payload).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Command data (length 0..255).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesBase.id">
+<code class="descname">id</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesBase.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the command ID.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Command ID (0..255).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesBase.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesBase.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpret the response to this command received from the device. This
+converts the raw byte array to the actual data type(s) depending on the
+sent command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Interpreted response. Data type and meaning depends on the
+sent command. None for commands without response data. See the
+actual command implementation for details.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesBase.max_response_time">
+<code class="descname">max_response_time</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesBase.max_response_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the maximum response time for this command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Maximum response time in seconds.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesBase.post_processing_time">
+<code class="descname">post_processing_time</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesBase.post_processing_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the post processing time for this command. The post processing time
+defines how long a device needs to execute a command <em>after</em> responding
+to the SHDLC command. Most devices don’t need post processing (command
+is executed <em>before</em> the response is sent). Only special commands (e.g.
+a device reset) are executed after the response is sent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Maximum response time in seconds.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesOutputFormat2">
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sfa3x.commands.read_measured_values.</code><code class="descname">Sfa3xCmdReadMeasuredValuesOutputFormat2</code><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/commands/read_measured_values.html#Sfa3xCmdReadMeasuredValuesOutputFormat2"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesOutputFormat2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read Measured Values Output Format 2 Command</p>
+<p>Read measured values integer.</p>
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesOutputFormat2.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/commands/read_measured_values.html#Sfa3xCmdReadMeasuredValuesOutputFormat2.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesOutputFormat2.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesOutputFormat2.interpret_response">
+<em class="property">static </em><code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/commands/read_measured_values.html#Sfa3xCmdReadMeasuredValuesOutputFormat2.interpret_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesOutputFormat2.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><ul class="simple">
+<li>hcho (int) -
+Formaldehyde concentration in ppb as a 16-bit signed integer.
+Positive values only, negative values are coerced to zero. Scale
+factor 5 ppb^(-1).</li>
+<li>relative_humidity (int) -
+Relative humidity in %. Values between 0 and 100 only. With
+internal correction for temperature offset (if configured). Scale
+factor 100 %^(-1).</li>
+<li>temperature (int) -
+Temperature in °C. With internal correction for temperature
+offset (if configured). Scale factor 200 °C^(-1).</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">tuple</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesOutputFormat2.check_response_length">
+<code class="descname">check_response_length</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesOutputFormat2.check_response_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the response length is correct.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.6)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesOutputFormat2.data">
+<code class="descname">data</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesOutputFormat2.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the command data (payload).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Command data (length 0..255).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesOutputFormat2.id">
+<code class="descname">id</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesOutputFormat2.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the command ID.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Command ID (0..255).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesOutputFormat2.max_response_time">
+<code class="descname">max_response_time</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesOutputFormat2.max_response_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the maximum response time for this command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Maximum response time in seconds.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesOutputFormat2.post_processing_time">
+<code class="descname">post_processing_time</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.read_measured_values.Sfa3xCmdReadMeasuredValuesOutputFormat2.post_processing_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the post processing time for this command. The post processing time
+defines how long a device needs to execute a command <em>after</em> responding
+to the SHDLC command. Most devices don’t need post processing (command
+is executed <em>before</em> the response is sent). Only special commands (e.g.
+a device reset) are executed after the response is sent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Maximum response time in seconds.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-sensirion_shdlc_sfa3x.commands.device_information">
+<span id="device-information"></span><h3>Device Information<a class="headerlink" href="#module-sensirion_shdlc_sfa3x.commands.device_information" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdDeviceInformationBase">
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sfa3x.commands.device_information.</code><code class="descname">Sfa3xCmdDeviceInformationBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/commands/device_information.html#Sfa3xCmdDeviceInformationBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdDeviceInformationBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>SHDLC command 0xD0: “Device Information”.</p>
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdDeviceInformationBase.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/commands/device_information.html#Sfa3xCmdDeviceInformationBase.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdDeviceInformationBase.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdDeviceInformationBase.check_response_length">
+<code class="descname">check_response_length</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdDeviceInformationBase.check_response_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the response length is correct.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.6)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdDeviceInformationBase.data">
+<code class="descname">data</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdDeviceInformationBase.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the command data (payload).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Command data (length 0..255).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdDeviceInformationBase.id">
+<code class="descname">id</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdDeviceInformationBase.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the command ID.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Command ID (0..255).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdDeviceInformationBase.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdDeviceInformationBase.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpret the response to this command received from the device. This
+converts the raw byte array to the actual data type(s) depending on the
+sent command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Interpreted response. Data type and meaning depends on the
+sent command. None for commands without response data. See the
+actual command implementation for details.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdDeviceInformationBase.max_response_time">
+<code class="descname">max_response_time</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdDeviceInformationBase.max_response_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the maximum response time for this command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Maximum response time in seconds.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdDeviceInformationBase.post_processing_time">
+<code class="descname">post_processing_time</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdDeviceInformationBase.post_processing_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the post processing time for this command. The post processing time
+defines how long a device needs to execute a command <em>after</em> responding
+to the SHDLC command. Most devices don’t need post processing (command
+is executed <em>before</em> the response is sent). Only special commands (e.g.
+a device reset) are executed after the response is sent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Maximum response time in seconds.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdGetDeviceMarking">
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sfa3x.commands.device_information.</code><code class="descname">Sfa3xCmdGetDeviceMarking</code><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/commands/device_information.html#Sfa3xCmdGetDeviceMarking"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdGetDeviceMarking" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get Device Marking Command</p>
+<p>Gets the device marking from the device.</p>
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdGetDeviceMarking.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/commands/device_information.html#Sfa3xCmdGetDeviceMarking.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdGetDeviceMarking.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdGetDeviceMarking.interpret_response">
+<em class="property">static </em><code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/commands/device_information.html#Sfa3xCmdGetDeviceMarking.interpret_response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdGetDeviceMarking.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">String containing the device marking.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdGetDeviceMarking.check_response_length">
+<code class="descname">check_response_length</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdGetDeviceMarking.check_response_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the response length is correct.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.6)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdGetDeviceMarking.data">
+<code class="descname">data</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdGetDeviceMarking.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the command data (payload).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Command data (length 0..255).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdGetDeviceMarking.id">
+<code class="descname">id</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdGetDeviceMarking.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the command ID.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Command ID (0..255).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdGetDeviceMarking.max_response_time">
+<code class="descname">max_response_time</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdGetDeviceMarking.max_response_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the maximum response time for this command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Maximum response time in seconds.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdGetDeviceMarking.post_processing_time">
+<code class="descname">post_processing_time</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_information.Sfa3xCmdGetDeviceMarking.post_processing_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the post processing time for this command. The post processing time
+defines how long a device needs to execute a command <em>after</em> responding
+to the SHDLC command. Most devices don’t need post processing (command
+is executed <em>before</em> the response is sent). Only special commands (e.g.
+a device reset) are executed after the response is sent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Maximum response time in seconds.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-sensirion_shdlc_sfa3x.commands.device_reset">
+<span id="device-reset"></span><h3>Device Reset<a class="headerlink" href="#module-sensirion_shdlc_sfa3x.commands.device_reset" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceResetBase">
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sfa3x.commands.device_reset.</code><code class="descname">Sfa3xCmdDeviceResetBase</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/commands/device_reset.html#Sfa3xCmdDeviceResetBase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceResetBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>SHDLC command 0xD3: “Device Reset”.</p>
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceResetBase.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/commands/device_reset.html#Sfa3xCmdDeviceResetBase.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceResetBase.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceResetBase.check_response_length">
+<code class="descname">check_response_length</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceResetBase.check_response_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the response length is correct.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.6)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceResetBase.data">
+<code class="descname">data</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceResetBase.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the command data (payload).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Command data (length 0..255).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceResetBase.id">
+<code class="descname">id</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceResetBase.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the command ID.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Command ID (0..255).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceResetBase.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceResetBase.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpret the response to this command received from the device. This
+converts the raw byte array to the actual data type(s) depending on the
+sent command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Interpreted response. Data type and meaning depends on the
+sent command. None for commands without response data. See the
+actual command implementation for details.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceResetBase.max_response_time">
+<code class="descname">max_response_time</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceResetBase.max_response_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the maximum response time for this command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Maximum response time in seconds.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceResetBase.post_processing_time">
+<code class="descname">post_processing_time</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceResetBase.post_processing_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the post processing time for this command. The post processing time
+defines how long a device needs to execute a command <em>after</em> responding
+to the SHDLC command. Most devices don’t need post processing (command
+is executed <em>before</em> the response is sent). Only special commands (e.g.
+a device reset) are executed after the response is sent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Maximum response time in seconds.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceReset">
+<em class="property">class </em><code class="descclassname">sensirion_shdlc_sfa3x.commands.device_reset.</code><code class="descname">Sfa3xCmdDeviceReset</code><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/commands/device_reset.html#Sfa3xCmdDeviceReset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceReset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Device Reset Command</p>
+<p>Executes a reset on the device.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The device will reply before executing the reset.</p>
+</div>
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceReset.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sensirion_shdlc_sfa3x/commands/device_reset.html#Sfa3xCmdDeviceReset.__init__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceReset.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructor.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceReset.check_response_length">
+<code class="descname">check_response_length</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceReset.check_response_length" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the response length is correct.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://sensirion.github.io/python-shdlc-driver/api.html#sensirion_shdlc_driver.errors.ShdlcResponseError" title="(in Sensirion SHDLC Python Driver v0.1.6)"><strong>ShdlcResponseError</strong></a> – If length is wrong.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceReset.data">
+<code class="descname">data</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceReset.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the command data (payload).</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Command data (length 0..255).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bytes</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceReset.id">
+<code class="descname">id</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceReset.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the command ID.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Command ID (0..255).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">byte</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceReset.interpret_response">
+<code class="descname">interpret_response</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceReset.interpret_response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpret the response to this command received from the device. This
+converts the raw byte array to the actual data type(s) depending on the
+sent command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>bytes</em>) – Raw data (payload) received from the device.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Interpreted response. Data type and meaning depends on the
+sent command. None for commands without response data. See the
+actual command implementation for details.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceReset.max_response_time">
+<code class="descname">max_response_time</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceReset.max_response_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the maximum response time for this command.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Maximum response time in seconds.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceReset.post_processing_time">
+<code class="descname">post_processing_time</code><a class="headerlink" href="#sensirion_shdlc_sfa3x.commands.device_reset.Sfa3xCmdDeviceReset.post_processing_time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the post processing time for this command. The post processing time
+defines how long a device needs to execute a command <em>after</em> responding
+to the SHDLC command. Most devices don’t need post processing (command
+is executed <em>before</em> the response is sent). Only special commands (e.g.
+a device reset) are executed after the response is sent.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Maximum response time in seconds.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">float</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="quickstart.html" class="btn btn-neutral float-left" title="Quick Start" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021 Sensirion AG, Switzerland
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-book"> Other Versions</span>
+        v: master
+        <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Branches</dt>
+            <dd><a href="master/api.html">master</a></dd>
+        </dl>
+    </div>
+</div>
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
