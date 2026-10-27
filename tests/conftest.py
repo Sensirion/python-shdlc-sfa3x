@@ -11,7 +11,7 @@ def pytest_addoption(parser):
     """
     Register command line options
     """
-    parser.addoption("--serial-port", action="store", type="string")
+    parser.addoption("--serial-port", action="store", type=str)
 
 
 def _get_serial_port(config, validate=False):
