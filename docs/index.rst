@@ -16,4 +16,5 @@ etc.
    shdlc
    installation
    quickstart
+   development
    api
